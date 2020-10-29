@@ -1,9 +1,8 @@
 FROM golang:buster as build-env
 ## Download and Extract
-ADD https://github.com/gotify/server/archive/v2.0.19.tar.gz ./
-RUN tar -xzavf v2.0.19.tar.gz
-
-RUN cd server-2.0.19 && go build -a -o ../gotify-app .
+ADD https://github.com/gotify/server/archive/v2.0.20.tar.gz ./
+RUN tar -xzavf v2.0.20.tar.gz
+RUN cd server-2.0.20 && go build -a -o ../gotify-app .
 
 FROM ubuntu
 
