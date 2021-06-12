@@ -7,7 +7,7 @@ RUN apk add --no-cache bash git build-base && git clone https://github.com/gotif
 FROM node:alpine as node-build
 COPY --from=go-build-1 /opt/ /opt
 WORKDIR /opt/server/
-RUN apk add --no-cache chromium-chromedriver && cd /opt/server/ui && yarn && yarn build
+RUN apk add --no-cache curl wget chromium-chromedriver && cd /opt/server/ui && yarn && yarn build
 
 FROM golang:alpine as go-build-2
 COPY --from=node-build /opt/server/. /opt/server/
