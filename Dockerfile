@@ -1,4 +1,5 @@
 FROM golang:alpine as go-build-1
+LABEL org.opencontainers.image.source https://github.com/cirfis/docker-gotify
 
 WORKDIR /opt/
 ENV GO111MODULE=on
